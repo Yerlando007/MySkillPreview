@@ -2,8 +2,6 @@
 using DataManager.Models.EF;
 using DataManager.Models.FormData;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
 using TestBereke.Interfaces;
 
 namespace TestBereke.Services
@@ -78,6 +76,25 @@ namespace TestBereke.Services
             }
 
             return false;
-        }   
+        }
+        public int LoadTodoItem(bool? a)
+        {
+            int one = 1;
+            int two = 2;
+            int zero = 0;
+            if (a == true)
+            {
+                return one;
+            }
+            else if (a == false)
+            {
+                return two;
+            }
+            else
+            {
+                return zero;
+            }
+
+        }
     }
 }

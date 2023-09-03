@@ -2,6 +2,7 @@ using DataManager.Models.Base;
 using DataManager.Models.EF;
 using DataManager.Models.FormData;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestBereke.Interfaces;
 
 namespace TestBereke.Controllers
@@ -139,6 +140,33 @@ namespace TestBereke.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Ошибка метод DeleteTodoItem()");
+                result.StatusCode = -1;
+                result.ErrorMessage = ex.Message.ToString();
+            }
+            return Ok(result);
+        }
+        [HttpPost("PostTodoItem")]
+        public ActionResult LoadTodoItem(bool? a)
+        {
+            
+            var result = new Response<int>();
+            try
+            {
+                var res = _todoService.LoadTodoItem(a);
+                if (res != null)
+                {
+                    result.StatusCode = 0;
+                    result.Result = res;
+                }
+                else
+                {
+                    result.StatusCode = -2;
+                    result.Result = res;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Ошибка метод LoadTodoItem()");
                 result.StatusCode = -1;
                 result.ErrorMessage = ex.Message.ToString();
             }

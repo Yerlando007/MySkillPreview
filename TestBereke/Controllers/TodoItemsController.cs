@@ -4,6 +4,7 @@ using DataManager.Models.FormData;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestBereke.Interfaces;
+using TestBereke.Services;
 
 namespace TestBereke.Controllers
 {
@@ -145,14 +146,14 @@ namespace TestBereke.Controllers
             }
             return Ok(result);
         }
-        [HttpPost("PostTodoItem")]
-        public ActionResult LoadTodoItem(bool? a)
+        [HttpGet("PostTodoItem")]
+        public async Task<ActionResult> LoadTodoItem()
         {
-            
-            var result = new Response<int>();
+
+            var result = new Response<Table1>();
             try
             {
-                var res = _todoService.LoadTodoItem(a);
+                var res = await _todoService.LoadTodoItem();
                 if (res != null)
                 {
                     result.StatusCode = 0;

@@ -1,4 +1,5 @@
-﻿using DataManager.Models.Base;
+﻿using DataManager.Models;
+using DataManager.Models.Base;
 using DataManager.Models.EF;
 using DataManager.Models.FormData;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ namespace TestBereke.Services
     {
         public readonly TodoContext _context;
         public TodoItemsServices(TodoContext context) => _context = context;
+
         public async Task<TodoItem> GetTodoItem(int id)
         {
             var todoItem = await _context.TodoItems.FirstOrDefaultAsync(c => c.Id == id);
@@ -77,24 +79,17 @@ namespace TestBereke.Services
 
             return false;
         }
-        public int LoadTodoItem(bool? a)
+        public async Task<Table1> LoadTodoItem()
         {
-            int one = 1;
-            int two = 2;
-            int zero = 0;
-            if (a == true)
+            var person = await _context.Table1.FirstOrDefaultAsync(r => r.Id == 2);
+            person.TableList = new List<Table2>();
+            person.TableList.Add(new Table2
             {
-                return one;
-            }
-            else if (a == false)
-            {
-                return two;
-            }
-            else
-            {
-                return zero;
-            }
-
+                Description = "ds",
+                Name = "Name"
+            });
+            await _context.SaveChangesAsync();
+            return person;
         }
     }
 }

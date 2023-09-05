@@ -41,7 +41,7 @@ namespace TestBereke.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка метод GetTodoItems()");
+                _logger.LogError(ex, "ГЋГёГЁГЎГЄГ  Г¬ГҐГІГ®Г¤ GetTodoItems()");
                 result.StatusCode = -1;
                 result.ErrorMessage = ex.Message.ToString();
             }
@@ -68,7 +68,7 @@ namespace TestBereke.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка метод GetTodoItem()");
+                _logger.LogError(ex, "ГЋГёГЁГЎГЄГ  Г¬ГҐГІГ®Г¤ GetTodoItem()");
                 result.StatusCode = -1;
                 result.ErrorMessage = ex.Message.ToString();
             }
@@ -95,7 +95,7 @@ namespace TestBereke.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка метод GetTodoItem()");
+                _logger.LogError(ex, "ГЋГёГЁГЎГЄГ  Г¬ГҐГІГ®Г¤ GetTodoItem()");
                 result.StatusCode = -1;
                 result.ErrorMessage = ex.Message.ToString();
             }
@@ -113,7 +113,7 @@ namespace TestBereke.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка метод GetTodoItem()");
+                _logger.LogError(ex, "ГЋГёГЁГЎГЄГ  Г¬ГҐГІГ®Г¤ GetTodoItem()");
                 result.StatusCode = -1;
                 result.ErrorMessage = ex.Message.ToString();
             }
@@ -140,34 +140,7 @@ namespace TestBereke.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Ошибка метод DeleteTodoItem()");
-                result.StatusCode = -1;
-                result.ErrorMessage = ex.Message.ToString();
-            }
-            return Ok(result);
-        }
-        [HttpGet("PostTodoItem")]
-        public async Task<ActionResult> LoadTodoItem()
-        {
-
-            var result = new Response<Table1>();
-            try
-            {
-                var res = await _todoService.LoadTodoItem();
-                if (res != null)
-                {
-                    result.StatusCode = 0;
-                    result.Result = res;
-                }
-                else
-                {
-                    result.StatusCode = -2;
-                    result.Result = res;
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Ошибка метод LoadTodoItem()");
+                _logger.LogError(ex, "ГЋГёГЁГЎГЄГ  Г¬ГҐГІГ®Г¤ DeleteTodoItem()");
                 result.StatusCode = -1;
                 result.ErrorMessage = ex.Message.ToString();
             }

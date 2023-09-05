@@ -79,17 +79,5 @@ namespace TestBereke.Services
 
             return false;
         }
-        public async Task<Table1> LoadTodoItem()
-        {
-            var person = await _context.Table1.FirstOrDefaultAsync(r => r.Id == 2);
-            person.TableList = new List<Table2>();
-            person.TableList.Add(new Table2
-            {
-                Description = "ds",
-                Name = "Name"
-            });
-            await _context.SaveChangesAsync();
-            return person;
-        }
     }
 }

@@ -10,6 +10,5 @@ namespace TestBereke.Interfaces
         Task<bool> UpdateTodoItem(TodoItemUpdateFormData todoItemDTO);
         Task<bool> CreateTodoItem(TodoItemFormData todoItemDTO);
         Task<bool> DeleteTodoItem(TodoItemUpdateFormData todoItemDTO);
-        Task<Table1> LoadTodoItem();
     }
 }
